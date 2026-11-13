@@ -1,4 +1,4 @@
-
+let diceSides = 13
 export let max = 0
 export class MM {
         constructor(game) {
@@ -7,7 +7,7 @@ export class MM {
        
 
         rollDice(){ // decides how far the player can
-            Math.floor(Math.random() * 13)
+           max = Math.floor(Math.random() * diceSides)
         }
    
     }

@@ -1,9 +1,10 @@
-import {Player} from './player.mjs'
+import {Player} from './playerP.mjs'
 import { Input } from './input.mjs'
 import { state } from './state.mjs'
 import { screen } from './playerP.mjs'
 import { StateMachine } from './state.mjs'
 import { Map } from './map.mjs'
+
 window.addEventListener('load', function(){
     let moveTim = 200
     let moveNum = 0
@@ -19,9 +20,9 @@ window.addEventListener('load', function(){
             this.height = height
             this.bw = gameBoard.width = window.innerWidth
             this.player = new Player(this)
-             this.idle = document.getElementById('witch')
-             this.input = new Input()
-             this.incre = 0
+            this.idle = document.getElementById('witch')
+            this.input = new Input()
+            this.incre = 0
         }
 
         update(context){

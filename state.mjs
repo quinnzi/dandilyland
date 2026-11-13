@@ -1,6 +1,7 @@
 const state = {
     tilesGone: 0,
-    screen: 1
+    screen: 1,
+    maxMoves: 0
 }
 export class StateMachine {
         constructor() {
