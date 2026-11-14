@@ -4,10 +4,14 @@ import { state } from './state.mjs'
 import { screen } from './playerP.mjs'
 import { StateMachine } from './state.mjs'
 import { Map } from './map.mjs'
-
+  // 1 is Axle
+    // 2 is Berry
+// 3 is Can
+   // 4 is D
 window.addEventListener('load', function(){
     let moveTim = 200
     let moveNum = 0
+
     const gameBoard = canvas1;
     const board = gameBoard.getContext("2d");
     gameBoard.width = window.innerWidth

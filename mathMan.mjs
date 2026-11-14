@@ -6,7 +6,7 @@ export class MM {
         }
        
 
-        rollDice(){ // decides how far the player can
+        rollDice(){ // decides how far the player can go
            max = Math.floor(Math.random() * diceSides)
         }
    
