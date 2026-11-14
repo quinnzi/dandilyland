@@ -1,10 +1,15 @@
 
 let slope = 2
+let tilesdrawn = 0
 export const tileCoords = []
 export class Map {
         constructor(game) {
         this.game = game
-        this.bg = document.getElementById("b1")
+        this.bg1 = document.getElementById("b1")
+        this.bg2 = document.getElementById("b1")
+        this.bg3 = document.getElementById("b1")
+        this.bg4 = document.getElementById("b1")
+        this.bg5 = document.getElementById("b1")
         this.state = this.game.state
         }
 
