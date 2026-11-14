@@ -10,7 +10,8 @@ window.addEventListener('load', function(){
     const board = gameBoard.getContext("2d");
     gameBoard.width = window.innerWidth
    gameBoard.height = window.innerHeight
-
+   
+ 
 
     class Game {
         constructor(width, height) {
@@ -22,6 +23,7 @@ window.addEventListener('load', function(){
              this.input = new Input()
              this.state = new StateMachine(this)
              this.incre = 0
+             this.char = 1 
              
         }
         update(context){
