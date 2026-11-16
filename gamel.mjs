@@ -1,13 +1,16 @@
 import {Player} from './playerP.mjs'
-import { Input } from './input.mjs'
+import { Input } from './inputL.mjs'
 import { state } from './state.mjs'
-import { screen } from './playerP.mjs'
 import { StateMachine } from './state.mjs'
 import { Map } from './map.mjs'
-  // 1 is Axle
-    // 2 is Berry
-// 3 is Can
-   // 4 is D
+
+let rollin
+let currentDice
+let lastDice
+let character = 1
+
+    // 1, axle. 2, berry, and so on
+
 window.addEventListener('load', function(){
     let moveTim = 200
     let moveNum = 0
@@ -20,30 +23,78 @@ window.addEventListener('load', function(){
 
     class Game {
         constructor(width, height) {
-            this.width = width
-            this.height = height
+            this.width = gameBoard.width
+            this.height =   gameBoard.height
             this.bw = gameBoard.width = window.innerWidth
             this.player = new Player(this)
             this.idle = document.getElementById('witch')
             this.input = new Input()
+            this.keys = this.input.keys
             this.incre = 0
+            this.map = new Map(this)
+            this.state = new StateMachine(this)
         }
 
         update(context){
-        this.player.update(this.input.keys, context)
-        this.map.update(this.input.keys, context)
+        this.player.update(context)
+        this.map.update(context)
         }
 
-        draw(context, state){
-           this.map.draw(context, state) // draws the map & tiles n stuff
-           this.player.draw(context, state) // draws the player sprite :D
+        draw(context){
+        this.map.draw(context) // draws the map & tiles n stuff
+        this.player.draw(context) // draws the player sprite :D
         }
+            diceDisplay(){
+                const dice = document.getElementById("dCon")
+                dice.style.display = "flex"
+                const diceHTML = dice.getElementsByTagName("img")
+                const dices = diceHTML// yes ik this is grammatically incorrect
+                rollin = setInterval(()=>{
+                currentDice = Math.floor(Math.random() * 7)
+                       console.log(dices)
+                       console.log(lastDice)
+                if(lastDice){
+                    dices[lastDice - 1].style.display = "none"
+                    lastDice = currentDice
+                }
+                if(currentDice === lastDice){
+                        console.log("samesies")
+                        currentDice++
+
+                if(currentDice === 6){
+                    currentDice--
+                    console.log("sixies")
+                    }
+                }
+                    dices[currentDice - 1].style.display = "block"
+                    lastDice = currentDice
+                    }, 200)
+                }
     }
     
 
     const game = new Game(gameBoard.width, gameBoard.height)
+    const diceButton = document.getElementById("diceButton")
+    diceButton.addEventListener('click', ()=>{
+    if(state.ableToMove === true){
+        return
+        console.log("Nope! You rolled already!")
+        
+    }
+    else{
+    
+       state.ableToMove = true 
+       game.diceDisplay()
+    }
+})
 
-
+document.getElementById("dCon").addEventListener("click", ()=>{
+    if(state.rolling){
+        clearInterval(rollin)
+        state.ableToMove = false 
+        state.movesTo = currentDice
+    }
+})
     function move(){
 
         board.clearRect(0, 0, gameBoard.width, gameBoard.height)
@@ -61,5 +112,6 @@ window.addEventListener('load', function(){
 
     }
     move()
-    
+
 })
+

@@ -1,61 +1,42 @@
 
+import { state } from './state.mjs'
+import { tileCoords } from './map.mjs'
+import { keyArray } from './inputL.mjs'
+let hasMoved = 0
+let hasMovedTotal = 0
+
 export class Player {
         constructor(game) {
-         this.keys = his.game.input.keys
+         this.game = game
+         this.keys = this.game.keys
          this.sprite = document.getElementById("player")
         }
 
-        update(){
-            
-                switch (ev.code) {
-                    case 'ArrowDown':
-                        if(this.keys.indexOf(ev.code) === -1){
-                            this.keys.push(ev.code)
-                        }
-                        break;
+    draw(context){
+        if(!tileCoords || tileCoords.length === 0){
+            return
+        }
+        console.log(hasMovedTotal)
+        context.drawImage(this.sprite, tileCoords[hasMovedTotal].x, tileCoords[hasMovedTotal].y, 250, 200)
+    }
 
-                        case 'ArrowUp':
-                        if(this.keys.indexOf(ev.code) === -1){
-                            this.keys.push(ev.code)
-                        }
-                        break;
+    update(context){
+        console.log(keyArray)
+        if(keyArray.includes("ArrowDown")){
 
-                        case 'ArrowRight':
-                        if(this.keys.indexOf(ev.code) === -1){
-                            this.keys.push(ev.code)
-                        }
-                        break;
+            if(state.movesTo - hasMoved != 0){
+                this.draw(context)
+                hasMoved++
+                hasMovedTotal++
+            }
 
-                        case 'ArrowLeft':
-                        if(this.keys.indexOf(ev.code) === -1){
-                            this.keys.push(ev.code)
-                        }
-                        break;
+        else{
+            console.log("you're done moving!")
+            this.draw(context)
+            }
 
-                        case 'Enter':
-                        if(this.keys.indexOf(ev.code) === -1){
-                            this.keys.push(ev.code)
-                        }
-                        break;
-                        case 'KeyE':
-                        if(this.keys.indexOf(ev.code) === -1){
-                            this.keys.push(ev.code)
-                        }
-
-                        break;
-                         
-                        case 'Space':
-                        if(this.keys.indexOf(ev.code) === -1){
-                            this.keys.push(ev.code)
-                        }
-
-                        break;
-                        
-                
-                    default:
-                      console.log(this.keys)  
-                        break;
-                }
+            }
+    
 
        
 

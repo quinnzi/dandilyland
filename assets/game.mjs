@@ -1,16 +1,18 @@
 import {Player} from './player.mjs'
 import { Input } from './input.mjs'
-import { state } from './State.mjs'
+import { state } from './state.mjs'
 import { screen } from './player.mjs'
-import { StateMachine } from './State.mjs'
+import { StateMachine } from './state.mjs'
 window.addEventListener('load', function(){
     let moveTim = 200
     let moveNum = 0
     const gameBoard = canvas1;
     const board = gameBoard.getContext("2d");
     gameBoard.width = window.innerWidth
-   gameBoard.height = window.innerHeight
+    gameBoard.height = window.innerHeight
    
+    let character = 1
+    // 1, axle. 2, berry, and so on
  
 
     class Game {
@@ -19,11 +21,11 @@ window.addEventListener('load', function(){
             this.height = height
             this.bw = gameBoard.width = window.innerWidth
             this.player = new Player(this)
-             this.idle = document.getElementById('witch')
-             this.input = new Input()
-             this.state = new StateMachine(this)
-             this.incre = 0
-             this.char = 1 
+            this.idle = document.getElementById('witch')
+            this.input = new Input()
+            this.state = new StateMachine(this)
+            this.incre = 0
+            this.char = character
              
         }
         update(context){

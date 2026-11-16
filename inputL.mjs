@@ -1,8 +1,9 @@
-
+export const keyArray = []
 export class Input {
         constructor() {
             this.keys = []
             console.log(this.keys)
+            
             window.addEventListener('keydown', (ev) =>{
                 ev.preventDefault();
                 console.log(ev.code)
@@ -10,35 +11,41 @@ export class Input {
                     case 'ArrowDown':
                         if(this.keys.indexOf(ev.code) === -1){
                             this.keys.push(ev.code)
+                            keyArray.push(ev.code)
                         }
                         break;
 
                         case 'ArrowUp':
                         if(this.keys.indexOf(ev.code) === -1){
                             this.keys.push(ev.code)
+                            keyArray.push(ev.code)
                         }
                         break;
 
                         case 'ArrowRight':
                         if(this.keys.indexOf(ev.code) === -1){
                             this.keys.push(ev.code)
+                            keyArray.push(ev.code)
                         }
                         break;
 
                         case 'ArrowLeft':
                         if(this.keys.indexOf(ev.code) === -1){
                             this.keys.push(ev.code)
+                            keyArray.push(ev.code)
                         }
                         break;
 
                         case 'Enter':
                         if(this.keys.indexOf(ev.code) === -1){
                             this.keys.push(ev.code)
+                            keyArray.push(ev.code)
                         }
                         break;
                         case 'KeyE':
                         if(this.keys.indexOf(ev.code) === -1){
                             this.keys.push(ev.code)
+                            keyArray.push(ev.code)
                         }
 
                         break;
@@ -46,6 +53,7 @@ export class Input {
                         case 'Space':
                         if(this.keys.indexOf(ev.code) === -1){
                             this.keys.push(ev.code)
+                            keyArray.push(ev.code)
                         }
 
                         break;
@@ -65,6 +73,7 @@ export class Input {
                 window.addEventListener('keyup', (ev) =>{
                 if(this.keys.indexOf(ev.code) != -1){
                     this.keys.splice(this.keys.indexOf(ev.code), 1)
+                    keyArray.splice(this.keys.indexOf(ev.code), 1)
                 }
 
                 console.log(this.keys)
