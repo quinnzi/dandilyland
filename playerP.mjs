@@ -22,21 +22,46 @@ export class Player {
 
     update(context){
         console.log(keyArray)
+        
         if(keyArray.includes("ArrowDown")){
 
-            if(state.movesTo - hasMoved != 0){
+            if(state.movesTo === hasMoved){
+                console.log("you're done moving!")
                 this.draw(context)
+                state.ableToMove = false
+                hasMoved = 0
+            }
+            console.log(state.movesTo - hasMoved)
+
+            if(state.movesTo - hasMoved != 0 && state.ableToMove){
                 hasMoved++
                 hasMovedTotal++
-            }
+                state.movesTo--
+                this.draw(context)}
 
-        else{
-            console.log("you're done moving!")
-            this.draw(context)
-            }
 
             }
-    
+            
+        if(keyArray.includes("ArrowUp")){
+            
+           
+            if(state.movesTo === hasMoved){
+                console.log("you're done moving!")
+                this.draw(context)
+                state.ableToMove = false
+                hasMoved = 0
+            }
+            console.log(state.movesTo - hasMoved)
+            
+            if(state.movesTo - hasMoved != 0 && state.ableToMove){
+                hasMoved++
+                hasMovedTotal++
+                state.movesTo--
+                this.draw(context)}
+
+            }
+        
+        
 
        
 

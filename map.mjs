@@ -63,8 +63,8 @@ drawB(context){
 coordinateGenerator(){
     console.log(this.game.height)
     console.log(this.game.height)
-    const maxHeight = this.game.height - 250 //THIS IS THE M A X HEIGHT ughh why is y inverseeeedddd okay so every value after has to be below this but not zero, gots it????
-    const maxWidth = this.game.width - 300
+    const maxHeight = this.game.height - 150 //THIS IS THE M A X HEIGHT ughh why is y inverseeeedddd okay so every value after has to be below this but not zero, gots it????
+    const maxWidth = this.game.width - 250
 
     if(!tilesPrinted){ // to get the tile all of the other tiles positions'll be based on :D
 
@@ -77,8 +77,8 @@ coordinateGenerator(){
 }
 
 else{
-      const offsetY = Math.round(Math.random() * 10)  + 250// the offset is below the height of the tile to align every tile roughly in a line. ..I hope
-      const offsetX = Math.round(Math.random() * 400) + 200 //thing to add to 500
+      const offsetY = Math.round(Math.random() * 10)  + 150// the offset is below the height of the tile to align every tile roughly in a line. ..I hope
+      const offsetX = Math.round(Math.random() * 100) + 100 //thing to add to 500
 
       const ox = tileCoords[tileCoords.length - 1].x // values new values are based on 
       const oy = tileCoords[tileCoords.length - 1].y
@@ -106,10 +106,10 @@ drawTiles(context){
     const dx = tileCoords[i].x 
     const dy = tileCoords[i].y
     context.fillStyle = "rgb(252, 184, 221)"
-    context.fillRect(dx, dy, 250, 250)
+    context.fillRect(dx, dy, 150, 150)
     context.strokeStyle = 'rgb(114, 17, 114)';
     context.lineWidth = 3; // border thickness
-    context.strokeRect(dx, dy, 250, 250);
+    context.strokeRect(dx, dy, 150, 150);
         }
         
 

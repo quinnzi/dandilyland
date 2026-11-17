@@ -38,37 +38,44 @@ window.addEventListener('load', function(){
         update(context){
         this.player.update(context)
         this.map.update(context)
+   
         }
 
         draw(context){
         this.map.draw(context) // draws the map & tiles n stuff
         this.player.draw(context) // draws the player sprite :D
         }
-            diceDisplay(){
+        diceDisplay(){
                 const dice = document.getElementById("dCon")
-                dice.style.display = "flex"
                 const diceHTML = dice.getElementsByTagName("img")
                 const dices = diceHTML// yes ik this is grammatically incorrect
                 rollin = setInterval(()=>{
-                currentDice = Math.floor(Math.random() * 7)
+                currentDice = Math.floor(Math.random() * 6) + 1
                        console.log(dices)
                        console.log(lastDice)
                 if(lastDice){
                     dices[lastDice - 1].style.display = "none"
-                    lastDice = currentDice
+                         console.log(currentDice + "lastdice")
                 }
-                if(currentDice === lastDice){
-                        console.log("samesies")
+                else{
+                    lastDice = currentDice
+                    console.log(currentDice + "set right")
+                }
+                if(currentDice === lastDice && currentDice != 6){
+                        console.log("samesies" + currentDice)
                         currentDice++
+                        
 
                 if(currentDice === 6){
-                    currentDice--
-                    console.log("sixies")
+                    currentDice = 5
+                    console.log("sixies" + currentDice)
                     }
                 }
+                    console.log(currentDice)
+                    console.log(dices[currentDice - 1])
                     dices[currentDice - 1].style.display = "block"
                     lastDice = currentDice
-                    }, 200)
+                    }, 80)
                 }
     }
     
@@ -82,8 +89,9 @@ window.addEventListener('load', function(){
         
     }
     else{
-    
-       state.ableToMove = true 
+       const dice = document.getElementById("dCon")
+       dice.style.display = "flex"
+       state.rolling = true
        game.diceDisplay()
     }
 })
@@ -91,8 +99,17 @@ window.addEventListener('load', function(){
 document.getElementById("dCon").addEventListener("click", ()=>{
     if(state.rolling){
         clearInterval(rollin)
-        state.ableToMove = false 
         state.movesTo = currentDice
+        state.ableToMove = true 
+        state.rolling = false
+        document.getElementById("tell").textContent = "You rolled a " + currentDice + "!"
+          const timeish = setTimeout(
+
+            function(){
+document.getElementById("dCon").style.display = "none"
+clearTimeout(timeish)
+            }, 2000 
+        )
     }
 })
     function move(){

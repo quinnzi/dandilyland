@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DandilyLand</title>
+    <link rel="stylesheet" href="/pages/stylez.css">
 </head>
 <body>
     <canvas style="height: 100vh; width: 100%; background-color: rgb(221, 193, 166);" id="canvas1">
@@ -14,19 +15,20 @@
          <img id="b4" src="/assets/fourth.jpg" class="assets">
          <img id="b5" src="/assets/last.jpg" class="assets">
     </canvas>
+      
     <section style="width: 20%; position: absolute; bottom: 0; height: 10vh; right: 0; background-color: rgb(221, 193, 166); border: 4px groove #110a06; padding: 1rem; display: flex; justify-content: space-evenly;">
 <img src="/assets/dd.png" style="height: inherit;" id="diceButton">
 <img src="/assets/mp.png" style="height: inherit;">
     </section>
-    <section id="dCon">
+  <section id="dCon">
      <img id="d1" src="/assets/d1.png" class="dice">
        <img id="d2" src="/assets/d2.png" class="dice">
        <img id="d3" src="/assets/d3.png" class="dice">
         <img id="d4" src="/assets/d4.png" class="dice">
           <img id="d5" src="/assets/d5.png" class="dice">
           <img id="d6" src="/assets/d6.png" class="dice">
-          
+          <p id="tell" style="color: whitesmoke; font-size: 2.5vw; text-align: center;"> </p>
     </section>
 </body>
-<script src="/gamel.mjs" type="module"></script>
+<script src="gamel.mjs" type="module"></script>
 </html>
