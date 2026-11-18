@@ -7,7 +7,8 @@ So, it's currently in its bare bones stage, so all you can do reliably is click 
   However, I decided to just start anyway because the idea was fun to me so screw visuals right? I made this in HTML canvas, it's my second game in canvas and though it was torture like the last one, I made a genuine effort to structure it well. I definitely overscoped, but I wanted this game to be so many things.</p>
 
 
-To read about the game you can refer to the very unfinished and currently inaccurate docs.html file in the pages folder of this repo :D
+To read about the game you can refer to the very unfinished and currently inaccurate docs.html file in the pages folder of this repo :D. 
+<p style="color: red">Everything below me is just an idea and hasn't been implemented yet!! </p>
 
 <h2 style="font-family: Texturina; font-size: 3vw; margin-bottom: 2.3rem; margin-top: 2.4rem;">What is DandilyLand?</h2>
 <p style="font-family: montserrat; font-size: 1.5vw; margin-bottom: 3rem;">Dandilyland is a board game where you roll a die and the die 
