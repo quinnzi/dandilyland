@@ -1,5 +1,7 @@
 ﻿# dandilyland
-
+<h1>How to use this??</h2>
+So, it's currently in its bare bones stage, so all you can do reliably is click on the dice icon and while the dice is rolling click the screen to get a number you can move. It is way way glitchy rn, so don't expect much. Try it here! https://dandilyland.quinnzneedles.workers.dev/
+<br>
 <h1>Why did you make this??</h1>
 <p>I've been fantasizing about this for a long while. Mostly the kill-tiles part where the player can get eaten by a bear, but I never felt ready because my art skills are nonexistent. 
   However, I decided to just start anyway because the idea was fun to me so screw visuals right? I made this in HTML canvas, it's my second game in canvas and though it was torture like the last one, I made a genuine effort to structure it well. I definitely overscoped, but I wanted this game to be so many things.</p>
@@ -7,21 +9,6 @@
 
 To read about the game you can refer to the very unfinished and currently inaccurate docs.html file in the pages folder of this repo :D
 
- <h2 style="font-family: montserrat; font-size: 2.4vw; margin: 2rem 0;">Table of Contents</h2>
-    <a href="hiw"><b>What is Dandilyland?</b></a>
-    <a href="hiw" style="margin-left: 3rem;">Objective</a>
-    <a href="hiw"><b>How to Play?</b></a>
-        <a href="hiw" style="margin-left: 3rem;">Controls</a>
-   <p>Non-existent yet</p>
-    <a href="hiw"><b>Types of Tiles</b></a>
-        <a href="hiw" style="margin-left: 3rem;">BASIC Tiles</a>
-        <a href="hiw" style="margin-left: 3rem;">KILL Tiles</a>
-        <a href="hiw" style="margin-left: 3rem;">QUEST Tiles</a>
-        <a href="hiw" style="margin-left: 3rem;">MAPPING Tiles</a>
-        <a href="hiw" style="margin-left: 3rem;">STATE Tiles</a>
-   </nav>
-   <section style="display: flex; flex-direction: column; align-items: center;  width: 80%; padding: 2.4rem; margin-left: 25%;">
-  <div>
     <h2 style="font-family: Texturina; font-size: 3vw; margin-bottom: 2.3rem; margin-top: 2.4rem;">What is DandilyLand?</h2>
     <p style="font-family: montserrat; font-size: 1.5vw; margin-bottom: 3rem;">Dandilyland is a board game where you roll a die and the die 
         tells you how many spaces to go. Sounds simple, yes? Well, it is structured similarly to candyland, 
@@ -44,10 +31,10 @@ To read about the game you can refer to the very unfinished and currently inaccu
 
     <h2 style="font-family: Texturina; font-size: 2.5vw;">The Objective</h2>
     <p style="font-family: montserrat; font-size: 1.5vw;"><b> To survive for 200 tiles! After you pass or get to 200 tiles, You win!
-  </div>
 
 
-    <div>
+
+
     <h2 style="font-family: Texturina; font-size: 3vw; margin-bottom: 2.3rem; margin-top: 2.4rem;">How to Play?</h2>
     <p style="font-family: montserrat; font-size: 1.5vw; margin-bottom: 4rem;"> Click the dice icon on the bottom bar and move 
         that amount of spaces using the arrow key. 
