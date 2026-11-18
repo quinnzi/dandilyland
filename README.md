@@ -40,6 +40,6 @@ To read about the game you can refer to the very unfinished and currently inaccu
 <p style="font-family: montserrat; font-size: 1.5vw; margin-bottom: 4rem;"> Click the dice icon on the bottom bar and move 
         that amount of spaces using the arrow key. 
 
-    </p>
-    <h2 style="font-family: Texturina; font-size: 2.5vw;">The Objective</h2>
-    <p style="font-family: montserrat; font-size: 1.5vw;">To make it to 200 tiles or more </p>
+</p>
+<h2 style="font-family: Texturina; font-size: 2.5vw;">The Objective</h2>
+<p style="font-family: montserrat; font-size: 1.5vw;">To make it to 200 tiles or more </p>
