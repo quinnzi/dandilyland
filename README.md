@@ -8,7 +8,7 @@ So, it's currently in its bare bones stage, so all you can do reliably is click 
 
 
 To read about the game you can refer to the very unfinished and currently inaccurate docs.html file in the pages folder of this repo :D. 
-<p style="color: red">Everything below me is just an idea and hasn't been implemented yet!! </p>
+<h4 style="color: red">PS: Everything below me is just an idea and hasn't been implemented yet!! </h4>
 
 <h2 style="font-family: Texturina; font-size: 3vw; margin-bottom: 2.3rem; margin-top: 2.4rem;">What is DandilyLand?</h2>
 <p style="font-family: montserrat; font-size: 1.5vw; margin-bottom: 3rem;">Dandilyland is a board game where you roll a die and the die 
