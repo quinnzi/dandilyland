@@ -6,7 +6,10 @@ So, it's currently in its bare bones stage, so all you can do reliably is click 
 <p>I've been fantasizing about this for a long while. Mostly the kill-tiles part where the player can get eaten by a bear, but I never felt ready because my art skills are nonexistent. 
   However, I decided to just start anyway because the idea was fun to me so screw visuals right? I made this in HTML canvas, it's my second game in canvas and though it was torture like the last one, I made a genuine effort to structure it well. I definitely overscoped, but I wanted this game to be so many things.</p>
 
-
+<h1>Controls</h1>
+Use the up arrow key to move. That's it rn
+<br>
+<br>
 To read about the game you can refer to the very unfinished and currently inaccurate docs.html file in the pages folder of this repo :D. 
 <h4 style="color: red">PS: Everything below me is just an idea and hasn't been implemented yet!! </h4>
 
