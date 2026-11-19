@@ -34,7 +34,7 @@ To read about the game you can refer to the very unfinished and currently inaccu
 
 
 <h2 style="font-family: Texturina; font-size: 2.5vw;">The Objective</h2>
-<p style="font-family: montserrat; font-size: 1.5vw;"><b> To survive for 200 tiles! After you pass or get to 200 tiles, You win!
+<p style="font-family: montserrat; font-size: 1.5vw;"><b> To survive for 200 tiles! After you pass or get to 200 tiles, You win! (not applicable rn)
 
 
 
@@ -44,5 +44,4 @@ To read about the game you can refer to the very unfinished and currently inaccu
         that amount of spaces using the arrow key. 
 
 </p>
-<h2 style="font-family: Texturina; font-size: 2.5vw;">The Objective</h2>
-<p style="font-family: montserrat; font-size: 1.5vw;">To make it to 200 tiles or more </p>
+
