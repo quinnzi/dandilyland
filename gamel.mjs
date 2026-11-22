@@ -51,28 +51,26 @@ window.addEventListener('load', function(){
                 const dices = diceHTML// yes ik this is grammatically incorrect
                 rollin = setInterval(()=>{
                 currentDice = Math.floor(Math.random() * 6) + 1
-                       console.log(dices)
-                       console.log(lastDice)
+
                 if(lastDice){
                     dices[lastDice - 1].style.display = "none"
-                         console.log(currentDice + "lastdice")
+                        
                 }
                 else{
                     lastDice = currentDice
-                    console.log(currentDice + "set right")
+                    
                 }
                 if(currentDice === lastDice && currentDice != 6){
-                        console.log("samesies" + currentDice)
+                      
                         currentDice++
                         
 
                 if(currentDice === 6){
                     currentDice = 5
-                    console.log("sixies" + currentDice)
+                    
                     }
                 }
-                    console.log(currentDice)
-                    console.log(dices[currentDice - 1])
+
                     dices[currentDice - 1].style.display = "block"
                     lastDice = currentDice
                     }, 80)
@@ -85,7 +83,7 @@ window.addEventListener('load', function(){
     diceButton.addEventListener('click', ()=>{
     if(state.ableToMove === true){
         return
-        console.log("Nope! You rolled already!")
+       
         
     }
     else{
@@ -123,7 +121,7 @@ clearTimeout(timeish)
             function(){
             requestAnimationFrame(move)
             clearInterval(time)
-            }, 200 // lazy fix for movement. might change
+            }, 300 // lazy fix for movement. might change
         )
 
 

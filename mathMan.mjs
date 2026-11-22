@@ -9,21 +9,8 @@ export class MM {
         this.char = this.game.char
         }
        
-
-        rollDice(){// decides how far the player can go
-
-           if(this.char === 2){
-            if(Math.random() < .70){
-                console.log("charmy Draw!")
-                num1 = Math.floor(Math.random() * diceSides) + 1
-                return
-            }
-           }
-           num1 = Math.floor(Math.random() * diceSides) + 1
-           num2 =  Math.floor(Math.random() * diceSides) + 1
-        }
         getTileType(){ // decides 
-           max = Math.floor(Math.random() * diceSides)
+           
         }
    
     }

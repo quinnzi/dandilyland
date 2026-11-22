@@ -7,7 +7,7 @@ let tilesT = [ // for now theres two cause i lit have one day left & need to lea
     {type: "kill"}, 
     {type: "blank"}
 ]
-
+let tileColor = "rgb(11, 117, 20)"
 import { state } from './state.mjs'
 export class Map {
         constructor(game) {
@@ -28,32 +28,26 @@ drawB(context){
     if (tilesGone <= 25) {
         
         context.drawImage(this.bg1, 0, 0, this.game.width, this.game.height)
-        console.log("First Map!")
-        console.log(this.bg1)
         return
     }
     
     if (tilesGone <= 60) {
         context.drawImage(this.bg2, this.game.width, this.game.height)
-        console.log("2 Map!")
         return
     }
 
     if (tilesGone <= 100) {
         context.drawImage(this.bg3, this.game.width, this.game.height)
-        console.log("third Map!")
         return
     }
 
     if (tilesGone <= 150) {
         context.drawImage(this.bg4, this.game.width, this.game.height)
-        console.log("4 Map!")
         return
     }
 
     if (tilesGone <= 200) {
         context.drawImage(this.bg5, this.game.width, this.game.height)
-        console.log("last Map!")
         return
 }
 
@@ -61,8 +55,7 @@ drawB(context){
 
 }
 coordinateGenerator(){
-    console.log(this.game.height)
-    console.log(this.game.height)
+
     const maxHeight = this.game.height - 150 //THIS IS THE M A X HEIGHT ughh why is y inverseeeedddd okay so every value after has to be below this but not zero, gots it????
     const maxWidth = this.game.width - 250
 
@@ -88,14 +81,35 @@ else{
       const ny = oy - offsetY
      
       if(ny < 0){
-        console.log("YOUR MATH IS OFFFFFFFFF")
+
         return
       }
-      console.log(tileCoords)
+  
       tileCoords.push({x: nx, y: ny, type: "blank"})    
 }
 }
+tileDecide(){
+    let types = ["death", "task", "basic"]
+    let tileT = Math.floor(Math.random() * 4)
+    let tile = types[tileT]
 
+    switch (tile) {
+        case "death":
+            
+            break;
+
+            case "task":
+            
+            break;
+
+                case "basic":
+            
+            break;
+    
+        default:
+            break;
+    }
+}
 drawTiles(context){
     tilesPrinted = tileCoords.length
     for (let i = 0; i < 9; i++){
@@ -105,9 +119,9 @@ drawTiles(context){
     this.coordinateGenerator()
     const dx = tileCoords[i].x 
     const dy = tileCoords[i].y
-    context.fillStyle = "rgb(252, 184, 221)"
+    context.fillStyle = tileColor
     context.fillRect(dx, dy, 150, 150)
-    context.strokeStyle = 'rgb(114, 17, 114)';
+    context.strokeStyle = 'rgb(132, 253, 128)';
     context.lineWidth = 3; // border thickness
     context.strokeRect(dx, dy, 150, 150);
         }

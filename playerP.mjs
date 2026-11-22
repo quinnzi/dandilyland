@@ -16,7 +16,7 @@ export class Player {
         if(!tileCoords || tileCoords.length === 0){
             return
         }
-        console.log(hasMovedTotal)
+      
         context.drawImage(this.sprite, tileCoords[hasMovedTotal].x, tileCoords[hasMovedTotal].y, 250, 200)
     }
 
@@ -38,8 +38,9 @@ export class Player {
                 hasMovedTotal++
                 state.movesTo--
                 this.draw(context)}
-
-
+                console.log(hasMoved)
+                console.log(state.movesTo)
+                console.log(hasMovedTotal)
             }
             
         if(keyArray.includes("ArrowUp")){
@@ -50,6 +51,7 @@ export class Player {
                 this.draw(context)
                 state.ableToMove = false
                 hasMoved = 0
+                
             }
             console.log(state.movesTo - hasMoved)
             
@@ -58,7 +60,9 @@ export class Player {
                 hasMovedTotal++
                 state.movesTo--
                 this.draw(context)}
-
+                console.log(hasMoved)
+                console.log(state.movesTo)
+                console.log(hasMovedTotal)
             }
         
         
