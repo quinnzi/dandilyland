@@ -6,7 +6,7 @@
     <title>DandilyLand</title>
     <link rel="stylesheet" href="stylez.css">
 </head>
-<body>
+<body style="display: flex;flex-direction: column; align-items: center; width: 100%;">
     <canvas style="height: 100vh; width: 100%; background-color: rgb(221, 193, 166);" id="canvas1">
          <img id="player" src="player.png">
          <img id="b1" src="b1.svg" class="assets">
@@ -16,9 +16,9 @@
          <img id="b5" src="last.jpg" class="assets">
     </canvas>
       
-    <section style="width: 20%; position: absolute; bottom: 0; height: 10vh; right: 0; background-color: rgb(221, 193, 166); border: 4px groove #110a06; padding: 1rem; display: flex; justify-content: space-evenly;">
+    <section style="width: 20%; position: absolute; bottom: 0; height: 10vh; right: 0; background-color: rgb(221, 193, 166); border: 6px groove #110a06; padding: 1rem; display: flex; justify-content: space-evenly;">
 <img src="dd.png" style="height: inherit;" id="diceButton">
-<img src="mp.png" style="height: inherit;">
+<img src="mp.png" style="height: inherit;" onclick="()=>{window.location.href = "docs.html"}>
     </section>
   <section id="dCon">
      <img id="d1" src="d1.png" class="dice">
@@ -27,8 +27,13 @@
         <img id="d4" src="d4.png" class="dice">
         <img id="d5" src="d5.png" class="dice">
         <img id="d6" src="d6.png" class="dice">
-        <p id="tell" style="color: whitesmoke; font-size: 2.5vw; text-align: center;"> </p>
+        <p id="tell" style="color: whitesmoke; font-size: 2.5vw; text-align: center;"> </p> 
     </section>
+    <div style="width: 70%; background-color:  rgb(221, 193, 166); border: 6px groove #110a06; border-radius: 18px 40px 13px; 
+    min-height: 50vh; position: absolute; top: 10rem; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 3rem; align-self: center;">
+        <h2 id="message">Go back 4 steps!</h2>
+    </div>
 </body>
+
 <script src="gamel.mjs" type="module"></script>
 </html>

@@ -7,7 +7,9 @@ export const state = {
     luck: 0,
     strength: 0,
     smarts: 0,
-    rolling: false
+    rolling: false,
+    tileType: "null",
+    stalling: false
 }
 
 

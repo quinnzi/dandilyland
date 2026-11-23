@@ -6,7 +6,7 @@ let tilesT = [ // for now theres two cause i lit have one day left & need to lea
     {type: "basic"},
     {type: "kill"}, 
     {type: "blank"}
-]
+
 let tileColor = "rgb(11, 117, 20)"
 import { state } from './state.mjs'
 export class Map {
@@ -19,6 +19,7 @@ export class Map {
         this.bg5 = document.getElementById("b5")
         this.state = this.game.state
         this.tc = tileCoords
+
         }
 
 drawB(context){
@@ -95,14 +96,50 @@ tileDecide(){
 
     switch (tile) {
         case "death":
-            
+                                let norp = 1                    
+                    const toFloor = Math.random() * 7 
+                    const atm = Math.floor(toFloor + 1)
+                    if(Math.random() > .5){
+                        norp = -1 
+                    }
+                    const finalMove = norp * atm
+                    state.tileType = "basic"
+                    state.movesTo = finalMove
+                    state.ableToMove = true
+                    tileColor = "black"
             break;
 
             case "task":
-            
+                                let norp = 1                    
+                    const toFloor = Math.random() * 7 
+                    const atm = Math.floor(toFloor + 1)
+                    if(Math.random() > .5){
+                        norp = -1 
+                    }
+                    const finalMove = norp * atm
+                    state.tileType = "basic"
+                    state.movesTo = finalMove
+                    state.ableToMove = true
+                    tileColor = "blue"
             break;
 
                 case "basic":
+                   
+                    {
+                    let norp = 1                    
+                    const toFloor = Math.random() * 7 
+                    const atm = Math.floor(toFloor + 1)
+                    if(Math.random() > .5){
+                        norp = -1 
+                    }
+                    const finalMove = norp * atm
+                    state.tileType = "basic"
+                    state.movesTo = finalMove
+                    state.ableToMove = true
+                    tileColor = "black"
+
+
+                }        
             
             break;
     
