@@ -38,7 +38,7 @@ window.addEventListener('load', function(){
         update(context){
         this.player.update(context)
         this.map.update(context)
-   
+        this.player.try(context)
         }
 
         draw(context){
@@ -98,14 +98,15 @@ document.getElementById("dCon").addEventListener("click", ()=>{
     if(state.rolling){
         clearInterval(rollin)
         state.movesTo = currentDice
+        console.log("moves "+ currentDice)
         state.ableToMove = true 
         state.rolling = false
         document.getElementById("tell").textContent = "You rolled a " + currentDice + "!"
           const timeish = setTimeout(
 
-            function(){
-document.getElementById("dCon").style.display = "none"
-clearTimeout(timeish)
+        function(){
+            document.getElementById("dCon").style.display = "none"
+            clearTimeout(timeish)
             }, 2000 
         )
     }

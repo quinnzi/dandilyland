@@ -20,50 +20,30 @@ export class Player {
         context.drawImage(this.sprite, tileCoords[hasMovedTotal].x, tileCoords[hasMovedTotal].y, 250, 200)
     }
 
+    try(context){
+        if(keyArray.includes("ArrowUp")){
+            if(state.movesTo === hasMoved){
+                console.log("you're done moving!")
+                state.ableToMove = false
+                hasMoved = 0
+                state.movesTo = 0
+            }
+            console.log(state.movesTo - hasMoved)
+            
+            if(state.movesTo - hasMoved != 0 && state.ableToMove){
+                hasMoved++
+                hasMovedTotal++
+                state.movesTo--
+                this.draw(context)}
+                console.log("I've moved " + hasMoved)
+                console.log("I still have to move " + state.movesTo)
+                console.log(hasMovedTotal)
+            }
+    }
     update(context){
         console.log(keyArray)
+            
         
-        if(keyArray.includes("ArrowDown")){
-
-            if(state.movesTo === hasMoved){
-                console.log("you're done moving!")
-                this.draw(context)
-                state.ableToMove = false
-                hasMoved = 0
-            }
-            console.log(state.movesTo - hasMoved)
-
-            if(state.movesTo - hasMoved != 0 && state.ableToMove){
-                hasMoved++
-                hasMovedTotal++
-                state.movesTo--
-                this.draw(context)}
-                console.log(hasMoved)
-                console.log(state.movesTo)
-                console.log(hasMovedTotal)
-            }
-            
-        if(keyArray.includes("ArrowUp")){
-            
-           
-            if(state.movesTo === hasMoved){
-                console.log("you're done moving!")
-                this.draw(context)
-                state.ableToMove = false
-                hasMoved = 0
-                
-            }
-            console.log(state.movesTo - hasMoved)
-            
-            if(state.movesTo - hasMoved != 0 && state.ableToMove){
-                hasMoved++
-                hasMovedTotal++
-                state.movesTo--
-                this.draw(context)}
-                console.log(hasMoved)
-                console.log(state.movesTo)
-                console.log(hasMovedTotal)
-            }
         
         
 

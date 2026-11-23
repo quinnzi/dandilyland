@@ -5,9 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DandilyLand</title>
     <link rel="stylesheet" href="stylez.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Butterfly+Kids&family=Cherry+Bomb+One&family=Chewy&family=Jersey+15&family=Libertinus+Keyboard&family=Rubik:ital,wght@0,300..900;1,300..900&family=VT323&display=swap" rel="stylesheet">
 </head>
-<body style="display: flex;flex-direction: column; align-items: center; width: 100%;">
-    <canvas style="height: 100vh; width: 100%; background-color: rgb(221, 193, 166);" id="canvas1">
+<body style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+       <section id="game-start-screen">
+        <h1 style="font-size: 10rem; color: #ff00bf; margin-bottom: 2rem;">Dandilyland</h1>
+        <button onclick="start()" style="font-size: 3rem; padding: 1.5rem; background-color: rgb(245, 239, 247); border: #00f7ffb9 5px groove; border-radius: 20px 30px 18px; width: 20%; font-family: 'Cherry Bomb One'; color: #00f7ffb9 ; margin-bottom: 2rem;">Play</button>
+        <img src="dprite bbb (1).gif" id="fairy">
+    </section>
+   
+    <canvas style="height: 100vh; width: 100%; background-color: rgb(255, 208, 237); " id="canvas1">
          <img id="player" src="player.png">
          <img id="b1" src="b1.svg" class="assets">
          <img id="b2" src="second.jpg" class="assets">
@@ -16,10 +25,12 @@
          <img id="b5" src="last.jpg" class="assets">
     </canvas>
       
-    <section style="width: 20%; position: absolute; bottom: 0; height: 10vh; right: 0; background-color: rgb(221, 193, 166); border: 6px groove #110a06; padding: 1rem; display: flex; justify-content: space-evenly;">
-<img src="dd.png" style="height: inherit;" id="diceButton">
-<img src="mp.png" style="height: inherit;" onclick="()=>{window.location.href = "docs.html"}>
+    <section style="width: 20%; position: absolute; bottom: 0; height: 10vh; right: 0; background-color: rgb(255, 208, 237);  border: 6px groove #110a06; padding: 1rem; display: flex; justify-content: space-evenly;">
+        <img src="dd.png" style="height: inherit;" id="diceButton">
+        <img src="mp.png" style="height: inherit;">
+        <img src="resicon.svg" style="height: inherit;" onclick="openDocs()">
     </section>
+
   <section id="dCon">
      <img id="d1" src="d1.png" class="dice">
        <img id="d2" src="d2.png" class="dice">
@@ -29,11 +40,27 @@
         <img id="d6" src="d6.png" class="dice">
         <p id="tell" style="color: whitesmoke; font-size: 2.5vw; text-align: center;"> </p> 
     </section>
-    <div style="width: 70%; background-color:  rgb(221, 193, 166); border: 6px groove #110a06; border-radius: 18px 40px 13px; 
-    min-height: 50vh; position: absolute; top: 10rem; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 3rem; align-self: center;">
-        <h2 id="message">Go back 4 steps!</h2>
+<iframe src="docs.html" frameborder="0" style="width: 30%; height: 50vh; position: absolute; bottom: 10rem; right: 0;" id="docs"></iframe>
+    <div id="prompt">
+        <h2 id="message">Go back 4 steps!!</h2>
     </div>
-</body>
 
+</body>
+<script> 
+
+let uod = 1
+function start() {
+    document.getElementById("game-start-screen").style.display = "none"
+ }</script>
+ <script> function openDocs() {
+    if(uod === 1)
+    {document.getElementById("docs").style.display = "block"
+        uod--
+    }
+    else {
+    document.getElementById("docs").style.display = "none"
+    uod++
+    }
+ }</script>
 <script src="gamel.mjs" type="module"></script>
 </html>

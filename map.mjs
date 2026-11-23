@@ -2,12 +2,15 @@ export const tileCoords = []
 let tilesPrinted = 0 
 let slope = 100
 let tilesdrawn = 0
+let until = 0 
+let tracked = 0
 let tilesT = [ // for now theres two cause i lit have one day left & need to learn to scope D; aa
     {type: "basic"},
     {type: "kill"}, 
-    {type: "blank"}
+    {type: "blank"}]
 
-let tileColor = "rgb(11, 117, 20)"
+    let tileColor = "rgb(11, 117, 20)"
+
 import { state } from './state.mjs'
 export class Map {
         constructor(game) {
@@ -55,8 +58,16 @@ drawB(context){
     // updating the bg after a certain amount of tiles have been passed
 
 }
+chooseTile(){
+const types = ["death", "task", "basic"]
+const w = Math.random() * 4 
+const which = Math.floor(w + 1)
+return types[which]
+}
 coordinateGenerator(){
-
+    until = Math.floor((Math.random() * 10) + 3)
+   
+    console.log("until" + until)
     const maxHeight = this.game.height - 150 //THIS IS THE M A X HEIGHT ughh why is y inverseeeedddd okay so every value after has to be below this but not zero, gots it????
     const maxWidth = this.game.width - 250
 
@@ -71,6 +82,7 @@ coordinateGenerator(){
 }
 
 else{
+     tracked++
       const offsetY = Math.round(Math.random() * 10)  + 150// the offset is below the height of the tile to align every tile roughly in a line. ..I hope
       const offsetX = Math.round(Math.random() * 100) + 100 //thing to add to 500
 
@@ -85,32 +97,36 @@ else{
 
         return
       }
-  
-      tileCoords.push({x: nx, y: ny, type: "blank"})    
+      let tileType = "blank"
+        if (tracked < until){
+             tileCoords.push({x: nx, y: ny, type: "blank"})    
+        }
+      else {
+        tracked = 0;
+        tileCoords.push({x: nx, y: ny, type: this.chooseTile()})
+      }
+     
 }
 }
-tileDecide(){
-    let types = ["death", "task", "basic"]
-    let tileT = Math.floor(Math.random() * 4)
-    let tile = types[tileT]
-
-    switch (tile) {
-        case "death":
-                                let norp = 1                    
+tileRun(tileT){
+// this function runs the tile action
+    switch (tileT) {
+        case "death":{
+                    let norp = 1                    
                     const toFloor = Math.random() * 7 
                     const atm = Math.floor(toFloor + 1)
                     if(Math.random() > .5){
-                        norp = -1 
+                    norp = -1 
                     }
                     const finalMove = norp * atm
                     state.tileType = "basic"
                     state.movesTo = finalMove
                     state.ableToMove = true
-                    tileColor = "black"
+                   }
             break;
 
             case "task":
-                                let norp = 1                    
+              {     let norp = 1                    
                     const toFloor = Math.random() * 7 
                     const atm = Math.floor(toFloor + 1)
                     if(Math.random() > .5){
@@ -120,7 +136,7 @@ tileDecide(){
                     state.tileType = "basic"
                     state.movesTo = finalMove
                     state.ableToMove = true
-                    tileColor = "blue"
+       }
             break;
 
                 case "basic":
@@ -136,8 +152,7 @@ tileDecide(){
                     state.tileType = "basic"
                     state.movesTo = finalMove
                     state.ableToMove = true
-                    tileColor = "black"
-
+                    console.log("basic")
 
                 }        
             
@@ -158,8 +173,26 @@ drawTiles(context){
     const dy = tileCoords[i].y
     context.fillStyle = tileColor
     context.fillRect(dx, dy, 150, 150)
+
+    switch (tileCoords[i].type) {
+        case "death":
+            tileColor = "black"
+            break;
+            case "task":
+            tileColor = "blue"
+            break;
+                    case "basic":
+            tileColor = "pink"
+            break;
+            case "blank":
+            tileColor = "rgb(11, 117, 20)"
+            break;
+        default:
+            break;
+    }
     context.strokeStyle = 'rgb(132, 253, 128)';
     context.lineWidth = 3; // border thickness
+
     context.strokeRect(dx, dy, 150, 150);
         }
         
