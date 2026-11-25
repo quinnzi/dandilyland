@@ -7,7 +7,9 @@ let tracked = 0
 let tilesT = [ // for now theres two cause i lit have one day left & need to learn to scope D; aa
     {type: "basic"},
     {type: "kill"}, 
-    {type: "blank"}]
+    {type: "blank"}
+]
+let tileT = document.getElementById("default")
 
     let tileColor = "rgb(11, 117, 20)"
 
@@ -61,9 +63,11 @@ drawB(context){
 chooseTile(){
 const types = ["death", "task", "basic"]
 const w = Math.random() * 4 
-const which = Math.floor(w + 1)
+const which = Math.floor(w)
 return types[which]
 }
+
+
 coordinateGenerator(){
     until = Math.floor((Math.random() * 10) + 3)
    
@@ -82,7 +86,7 @@ coordinateGenerator(){
 }
 
 else{
-     tracked++
+   
       const offsetY = Math.round(Math.random() * 10)  + 150// the offset is below the height of the tile to align every tile roughly in a line. ..I hope
       const offsetX = Math.round(Math.random() * 100) + 100 //thing to add to 500
 
@@ -94,17 +98,17 @@ else{
       const ny = oy - offsetY
      
       if(ny < 0){
-
         return
       }
-      let tileType = "blank"
+
         if (tracked < until){
-             tileCoords.push({x: nx, y: ny, type: "blank"})    
+             tileCoords.push({x: nx, y: ny, type: "blank"})   
+            tracked++ 
         }
-      else {
-        tracked = 0;
-        tileCoords.push({x: nx, y: ny, type: this.chooseTile()})
-      }
+        else {
+            tracked = 0;
+            tileCoords.push({x: nx, y: ny, type: this.chooseTile()})
+        }
      
 }
 }
@@ -162,6 +166,8 @@ tileRun(tileT){
             break;
     }
 }
+
+
 drawTiles(context){
     tilesPrinted = tileCoords.length
     for (let i = 0; i < 9; i++){
@@ -171,29 +177,33 @@ drawTiles(context){
     this.coordinateGenerator()
     const dx = tileCoords[i].x 
     const dy = tileCoords[i].y
-    context.fillStyle = tileColor
-    context.fillRect(dx, dy, 150, 150)
-
-    switch (tileCoords[i].type) {
+        switch (tileCoords[i].type) {
         case "death":
-            tileColor = "black"
+            tileT= document.getElementById("death")
             break;
+
             case "task":
-            tileColor = "blue"
+            tileT= document.getElementById("quest")
             break;
-                    case "basic":
-            tileColor = "pink"
+
+            case "basic":
+               tileT= document.getElementById("basic")
             break;
+
             case "blank":
-            tileColor = "rgb(11, 117, 20)"
+            tileT= document.getElementById("default")
             break;
+
         default:
             break;
     }
-    context.strokeStyle = 'rgb(132, 253, 128)';
-    context.lineWidth = 3; // border thickness
 
-    context.strokeRect(dx, dy, 150, 150);
+    
+ context.drawImage(tileT, dx, dy, 200, 200)
+
+
+
+
         }
         
 

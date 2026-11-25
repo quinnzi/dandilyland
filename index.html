@@ -16,7 +16,7 @@
         <img src="dprite bbb (1).gif" id="fairy">
     </section>
    
-    <canvas style="height: 100vh; width: 100%; background-color: rgb(255, 208, 237); " id="canvas1">
+    <canvas style="max-height: 100vh; width: 100%; background-color: rgb(255, 208, 237); " id="canvas1">
          <img id="player" src="player.png">
          <img id="b1" src="b1.svg" class="assets">
          <img id="b2" src="second.jpg" class="assets">
@@ -25,10 +25,17 @@
          <img id="b5" src="last.jpg" class="assets">
     </canvas>
       
-    <section style="width: 20%; position: absolute; bottom: 0; height: 10vh; right: 0; background-color: rgb(255, 208, 237);  border: 6px groove #110a06; padding: 1rem; display: flex; justify-content: space-evenly;">
-        <img src="dd.png" style="height: inherit;" id="diceButton">
-        <img src="mp.png" style="height: inherit;">
-        <img src="resicon.svg" style="height: inherit;" onclick="openDocs()">
+    <section style="width: 25%; position: absolute; bottom: 0rem; height: 10vh; right: 0;
+     background-color: rgb(236, 195, 142);  border: 6px groove #110a06; 
+     padding: 1rem; display: flex; justify-content: space-between; align-items: center;">
+       
+        <div style="display: column;  justify-content: center; height: 13vh; margin-right: 1rem;">
+            <img src="upMove.png" style="height:60%">
+            <img src="downMove.png" style="height: 50%;">
+        </div>
+         <img src="dd.png" style="height: inherit;" id="diceButton">
+        <img src="mapCon.png" style="height: 13vh; margin: 0;">
+        <img src="docs.png" style="height: 13vh;" onclick="openDocs()">
     </section>
 
   <section id="dCon">
@@ -45,8 +52,17 @@
         <h2 id="message">Go back 4 steps!!</h2>
     </div>
 
+
+         <img id="default" src="default.png" class="assets">
+       <img id="quest" src="quest.png" class="assets">
+       <img id="death" src="death.png" class="assets">
+        <img id="basic" src="basic.png" class="assets">
+
 </body>
+
 <script> 
+
+
 
 let uod = 1
 function start() {

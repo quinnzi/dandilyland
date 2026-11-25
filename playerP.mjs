@@ -17,7 +17,7 @@ export class Player {
             return
         }
       
-        context.drawImage(this.sprite, tileCoords[hasMovedTotal].x, tileCoords[hasMovedTotal].y, 250, 200)
+        context.drawImage(this.sprite, tileCoords[hasMovedTotal].x, tileCoords[hasMovedTotal].y, 150, 150)
     }
 
     try(context){
