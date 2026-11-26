@@ -9,11 +9,14 @@ let tilesT = [ // for now theres two cause i lit have one day left & need to lea
     {type: "kill"}, 
     {type: "blank"}
 ]
+
 let tileT = document.getElementById("default")
 
     let tileColor = "rgb(11, 117, 20)"
 
 import { state } from './state.mjs'
+import { hasMoved, playerMoved } from './gamel.mjs'
+
 export class Map {
         constructor(game) {
         this.game = game
@@ -60,11 +63,12 @@ drawB(context){
     // updating the bg after a certain amount of tiles have been passed
 
 }
+
 chooseTile(){
-const types = ["death", "task", "basic"]
-const w = Math.random() * 4 
-const which = Math.floor(w)
-return types[which]
+    const types = ["death", "task", "basic"]
+    const w = Math.random() * 4 
+    const which = Math.floor(w)
+    return types[which]
 }
 
 
@@ -224,6 +228,7 @@ drawTiles(context){
         }
         
     } */
+
 
 draw(context){
     this.drawB(context)

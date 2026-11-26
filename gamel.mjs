@@ -3,6 +3,8 @@ import { Input } from './inputL.mjs'
 import { state } from './state.mjs'
 import { StateMachine } from './state.mjs'
 import { Map } from './map.mjs'
+export let playerMoved = 0
+export let hasMoved = 0
 
 let rollin
 let currentDice
@@ -10,6 +12,22 @@ let lastDice
 let character = 1
 
     // 1, axle. 2, berry, and so on
+
+document.getElementById("up").addEventListener("click", ()=>
+{
+    if(state.ableToMove === true){
+        playerMoved++
+        hasMoved++
+    }
+})
+
+document.getElementById("down").addEventListener("click", ()=>
+{
+    if(state.ableToMove === true){
+        playerMoved++
+        hasMoved++
+    }
+})
 
 window.addEventListener('load', function(){
     let moveTim = 200
@@ -38,7 +56,8 @@ window.addEventListener('load', function(){
         update(context){
         this.player.update(context)
         this.map.update(context)
-        this.player.try(context)
+        
+    
         }
 
         draw(context){
@@ -106,6 +125,7 @@ document.getElementById("dCon").addEventListener("click", ()=>{
 
         function(){
             document.getElementById("dCon").style.display = "none"
+            document.getElementById("tell").textContent = ""
             clearTimeout(timeish)
             }, 2000 
         )
