@@ -2,7 +2,7 @@ export const tileCoords = []
 let tilesPrinted = 0 
 let slope = 100
 let tilesdrawn = 0
-let until = 0 
+let until = Math.floor((Math.random() * 6) + 3)
 let tracked = 0
 let tilesT = [ // for now theres two cause i lit have one day left & need to learn to scope D; aa
     {type: "basic"},
@@ -25,6 +25,7 @@ export class Map {
         this.bg3 = document.getElementById("b3")
         this.bg4 = document.getElementById("b4")
         this.bg5 = document.getElementById("b5")
+        this.bushes = document.getElementById("bushes")
         this.state = this.game.state
         this.tc = tileCoords
 
@@ -33,10 +34,11 @@ export class Map {
 drawB(context){
 
     const tilesGone = state.tilesG
-     
+    
     if (tilesGone <= 25) {
         
         context.drawImage(this.bg1, 0, 0, this.game.width, this.game.height)
+        context.drawImage(this.bushes, 0, 0, this.game.width, this.game.height)
         return
     }
     
@@ -73,7 +75,7 @@ chooseTile(){
 
 
 coordinateGenerator(){
-    until = Math.floor((Math.random() * 10) + 3)
+   
    
     console.log("until" + until)
     const maxHeight = this.game.height - 150 //THIS IS THE M A X HEIGHT ughh why is y inverseeeedddd okay so every value after has to be below this but not zero, gots it????
@@ -101,7 +103,7 @@ else{
 
       const ny = oy - offsetY
      
-      if(ny < 0){
+      if(ny < 0){ // OOOHHHH This is what prevents the thing from running forever
         return
       }
 
@@ -116,6 +118,7 @@ else{
      
 }
 }
+
 tileRun(tileT){
 // this function runs the tile action
     switch (tileT) {
@@ -174,6 +177,7 @@ tileRun(tileT){
 
 drawTiles(context){
     tilesPrinted = tileCoords.length
+    console.log(tileCoords)
     for (let i = 0; i < 9; i++){
     this.coordinateGenerator()
 }

@@ -2,7 +2,7 @@ import {Player} from './playerP.mjs'
 import { Input } from './inputL.mjs'
 import { state } from './state.mjs'
 import { StateMachine } from './state.mjs'
-import { Map } from './map.mjs'
+import { Map, tileCoords } from './map.mjs'
 export let playerMoved = 0
 export let hasMoved = 0
 
@@ -18,6 +18,10 @@ document.getElementById("up").addEventListener("click", ()=>
     if(state.ableToMove === true){
         playerMoved++
         hasMoved++
+        state.tilesG++
+    }
+    else{
+        alert("You're done moving silly! Stay in place like the forest tells you to")
     }
 })
 
@@ -26,6 +30,19 @@ document.getElementById("down").addEventListener("click", ()=>
     if(state.ableToMove === true){
         playerMoved++
         hasMoved++
+        state.tilesG++
+
+        if(playerMoved === tileCoords.length){
+            tileCoords.splice(0)
+        }
+        if(playerMoved === state.movesTo){
+            state.movesTo = 0
+            playerMoved = 0
+            state.ableToMove = true
+        }
+    }
+    else{
+         alert("You're done moving silly! Stay in place like the forest tells you to")
     }
 })
 
