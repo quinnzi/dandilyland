@@ -2,7 +2,7 @@ import {Player} from './playerP.mjs'
 import { Input } from './inputL.mjs'
 import { state } from './state.mjs'
 import { StateMachine } from './state.mjs'
-import { Map, tileCoords } from './map.mjs'
+import { Map, tileCoords, tilesPrinted } from './map.mjs'
 export let playerMoved = 0
 export let hasMoved = 0
 
@@ -15,36 +15,31 @@ let character = 1
 
 document.getElementById("up").addEventListener("click", ()=>
 {
-    if(state.ableToMove === true){
-        playerMoved++
-        hasMoved++
-        state.tilesG++
-    }
-    else{
-        alert("You're done moving silly! Stay in place like the forest tells you to")
-    }
-})
 
-document.getElementById("down").addEventListener("click", ()=>
-{
-    if(state.ableToMove === true){
-        playerMoved++
-        hasMoved++
-        state.tilesG++
 
         if(playerMoved === tileCoords.length){
-            tileCoords.splice(0)
+          
+            game.map.coordinateGenerator(true)
+            console.log("hopefully new:" + tileCoords)
+
         }
+        if(state.ableToMove === true){
+        playerMoved++
+        hasMoved++
+        state.tilesG++
+
         if(playerMoved === state.movesTo){
             state.movesTo = 0
             playerMoved = 0
-            state.ableToMove = true
+            state.ableToMove = false
         }
     }
     else{
          alert("You're done moving silly! Stay in place like the forest tells you to")
     }
 })
+
+
 
 window.addEventListener('load', function(){
     let moveTim = 200
@@ -117,10 +112,9 @@ window.addEventListener('load', function(){
     const game = new Game(gameBoard.width, gameBoard.height)
     const diceButton = document.getElementById("diceButton")
     diceButton.addEventListener('click', ()=>{
+
     if(state.ableToMove === true){
         return
-       
-        
     }
     else{
        const dice = document.getElementById("dCon")
@@ -130,6 +124,27 @@ window.addEventListener('load', function(){
     }
 })
 
+document.getElementById("down").addEventListener("click", ()=>
+{
+    if(state.ableToMove === true){
+        playerMoved++
+        hasMoved++
+        state.tilesG++
+
+        if(playerMoved === tileCoords.length){
+            tilesPrinted = 0
+            game.map.coordinateGenerator(true)
+        }
+        if(playerMoved === currentDice){
+            currentDice = 0
+            playerMoved = 0
+            state.ableToMove = false
+        }
+    }
+    else{
+         alert("You're done moving silly! Stay in place like the forest tells you to")
+    }
+})
 document.getElementById("dCon").addEventListener("click", ()=>{
     if(state.rolling){
         clearInterval(rollin)

@@ -1,8 +1,8 @@
 export const tileCoords = []
-let tilesPrinted = 0 
+export let tilesPrinted = 0 
 let slope = 100
 let tilesdrawn = 0
-let until = Math.floor((Math.random() * 6) + 3)
+let until = Math.floor((Math.random() * 3) + 1)
 let tracked = 0
 let tilesT = [ // for now theres two cause i lit have one day left & need to learn to scope D; aa
     {type: "basic"},
@@ -74,11 +74,9 @@ chooseTile(){
 }
 
 
-coordinateGenerator(){
+coordinateGenerator(newMap){
    
-   
-    console.log("until" + until)
-    const maxHeight = this.game.height - 150 //THIS IS THE M A X HEIGHT ughh why is y inverseeeedddd okay so every value after has to be below this but not zero, gots it????
+   const maxHeight = this.game.height - 150 //THIS IS THE M A X HEIGHT ughh why is y inverseeeedddd okay so every value after has to be below this but not zero, gots it????
     const maxWidth = this.game.width - 250
 
     if(!tilesPrinted){ // to get the tile all of the other tiles positions'll be based on :D
@@ -88,10 +86,10 @@ coordinateGenerator(){
 
         tileCoords.push({x: 350, y, type: "blank"})    
         tilesPrinted++
-        console.log(tileCoords)
+
 }
 
-else{
+if(tilesPrinted || newMap === true){
    
       const offsetY = Math.round(Math.random() * 10)  + 150// the offset is below the height of the tile to align every tile roughly in a line. ..I hope
       const offsetX = Math.round(Math.random() * 100) + 100 //thing to add to 500
@@ -179,10 +177,10 @@ drawTiles(context){
     tilesPrinted = tileCoords.length
     console.log(tileCoords)
     for (let i = 0; i < 9; i++){
-    this.coordinateGenerator()
+    this.coordinateGenerator(false)
 }
     for (let i = 0; i <= tileCoords.length - 1; i++){
-    this.coordinateGenerator()
+    this.coordinateGenerator(false)
     const dx = tileCoords[i].x 
     const dy = tileCoords[i].y
         switch (tileCoords[i].type) {

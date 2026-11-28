@@ -1,9 +1,8 @@
 
 import { state } from './state.mjs'
-import { tileCoords } from './map.mjs'
 import { keyArray } from './inputL.mjs'
 import { hasMoved, playerMoved } from './gamel.mjs'
-
+import { Map, tileCoords, tilesPrinted } from './map.mjs'
 
 
 
@@ -19,16 +18,16 @@ export class Player {
             return
         }
         
+        if(!tileCoords[hasMoved]){
+            this.game.map.coordinateGenerator(newMap = true)
 
+        }
         context.drawImage(this.sprite, tileCoords[hasMoved].x, tileCoords[hasMoved].y, 150, 150)
     }
 
     update(context){
         console.log(keyArray)
-        if(playerMoved === state.movesTo){
-        state.ableToMove = false
-        return
-        }
+
         }
    
     }
